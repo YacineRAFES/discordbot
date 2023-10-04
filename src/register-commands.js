@@ -15,7 +15,7 @@ const commands = [
       description: 'Bon allez, bon app!',
     },
     {
-        name: 'meteo2',
+        name: 'meteo',
         description: 'Quel temps fait-il à ... ?',
         options: [
             {
