@@ -84,7 +84,7 @@ client.on('interactionCreate', (interaction) => {
         tout =+'</tbody>';
         interaction.reply(tout);
     }
-    if(interaction.commandName === 'meteo2'){
+    if(interaction.commandName === 'meteo'){
         const ville = interaction.options.getString('ville');
         const axios = require('axios');
         const accessapi = process.env.WHEATHERSTACK;
