@@ -55,9 +55,6 @@ client.on('interactionCreate', (interaction) => {
     if (interaction.commandName === 'ping') {
         return interaction.reply('Pong!');
     }
-    if(interaction.commandName === 'bonapp') {
-        return interaction.reply('BON ALLEZ, BON APP!');
-    }
     if(interaction.commandName === 'table'){
         const col = interaction.options.getNumber('colonnes');
         const row = interaction.options.getNumber('lignes');
