@@ -24,17 +24,21 @@ client.on('messageCreate', (message) =>{
         const command = input.shift();
         switch(command){
             case "cat":
-                const axios = require('axios');
-                const accessapi = process.env.GIPHYAPI;
-                axios.get('https://api.giphy.com/v1/gifs/random?api_key='+accessapi+'&tag=cats%2C+pets%2C+kitten&rating=g')
-                .then(response => {
-                    const apiResponse = response.data;
-                    // const url = apiResponse.url;
-                    message.reply(apiResponse.data.url);
-                }).catch(error => {
-                    const errorMessage = error.response;
-                    message.reply(`${errorMessage}`);
-                });
+                axios.get('https://api.thecatapi.com/v1/images/search')
+                    .then(response => {
+                        const apiResponse = response.data[0];
+                        const url = apiResponse.url;
+                        const embedChat = new EmbedBuilder()
+                            .setColor('Random')
+                            .setTitle('Chat 🐱')
+                            .setImage(url)
+                            .setTimestamp();
+                        message.channel.send({embeds: [embedChat] });
+                    })
+                    .catch(error => {
+                        const errorMessage = error.response;
+                        message.reply(`${errorMessage}`);
+                    });
                 break;
             default:
                 message.reply("Cette commande n'existe pas ! :(");
