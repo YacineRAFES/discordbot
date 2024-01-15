@@ -36,9 +36,6 @@ client.on('messageCreate', (message) =>{
                     message.reply(`${errorMessage}`);
                 });
                 break;
-            case "schwepps":
-                message.reply('https://media.giphy.com/media/3o7TKph63PV1OGk0uY/giphy.gif');
-                break;
             default:
                 message.reply("Cette commande n'existe pas ! :(");
                 break;
